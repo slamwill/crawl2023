@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class GoogleMapController extends Controller
 {
 
-    public function crawlWithUrl(Request $request)
+    public function googleMap(Request $request)
     {
         // $url = $request->input('url');
         $response = \GoogleMaps::load('geocoding')
