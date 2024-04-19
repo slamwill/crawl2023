@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrawlWithUrlController;
+use App\Http\Controllers\GoogleMapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/crawl-with-url', [CrawlWithUrlController::class, 'crawlWithUrl']);
+Route::get('/googleMap', [GoogleMapController::class, 'googleMap']);
