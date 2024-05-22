@@ -4,33 +4,39 @@ namespace App\Services;
 
 class InvestmentService
 {
-    protected $kmsClient;
-
     public function __construct()
     {
-
     }
 
-    public function getInvestment($plaintext)
+    public function getInvestment(): array
     {
         $yearInput = 100;
         $yearRunning = 8;
-        $rating = 1.2;
+        $rating = 1.1;
         $output = 0;
-        
-        for($i = 0; $i < $yearRunning; $i++) {
-            echo $i+1 . " year output " . "(" . $output . "+" . $yearInput . ")" . "*" . $rating . " is ";
+        $result = [];
+
+        for ($i = 0; $i < $yearRunning; $i++) {
+            $year = $i + 1;
             $output = ($output + $yearInput) * $rating;
-            echo $output . PHP_EOL . "<br>";
+            $result[] = $this->formatYearlyOutput($year, $output, $yearInput, $rating);
         }
-        
+
         $totalAmount = $output;
         $totalCost = $yearInput * $yearRunning;
         $netProfit = $totalAmount - $totalCost;
         $netProfitPerYear = $netProfit / $yearRunning;
-        echo "Total amount is " . $totalAmount . PHP_EOL . "<br>";
-        echo "Total cost is " . $totalCost . PHP_EOL . "<br>";
-        echo "Net profit is " . $netProfit . PHP_EOL . "<br>";
-        echo "Net profit per year is " . $netProfitPerYear . PHP_EOL . "<br>";
+
+        $result[] = "Total amount is $totalAmount";
+        $result[] = "Total cost is $totalCost";
+        $result[] = "Net profit is $netProfit";
+        $result[] = "Net profit per year is $netProfitPerYear";
+
+        return $result;
+    }
+
+    private function formatYearlyOutput(int $year, float $output, float $yearInput, float $rating): string
+    {
+        return "$year year output ($output + $yearInput) * $rating is $output";
     }
 }
