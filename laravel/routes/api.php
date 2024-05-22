@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrawlWithUrlController;
 use App\Http\Controllers\GoogleMapController;
 use App\Http\Controllers\RedisController;
+use App\Http\Controllers\S3TestController;
+use App\Http\Controllers\KmsTestController;
 
 
 /*
@@ -27,3 +29,11 @@ Route::get('/googleMap', [GoogleMapController::class, 'googleMap']);
 
 Route::post('/store', [RedisController::class, 'store']);
 Route::get('/retrieve', [RedisController::class, 'retrieve']);
+
+
+Route::get('/getDataS3', [S3TestController::class, 'getS3']);
+Route::get('/putDataS3', [S3TestController::class, 'putS3']);
+
+
+Route::get('/testKmsSymmetryKey', [KmsTestController::class, 'testKmsSymmetryKey']);
+Route::get('/testKmsAymmetryKey', [KmsTestController::class, 'testKmsAymmetryKey']);
