@@ -8,7 +8,7 @@ use App\Http\Controllers\RedisController;
 use App\Http\Controllers\S3TestController;
 use App\Http\Controllers\KmsTestController;
 use App\Http\Controllers\InvestmentController;
-
+use App\Http\Controllers\PowerLotteryNumbersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +40,5 @@ Route::get('/testKmsSymmetryKey', [KmsTestController::class, 'testKmsSymmetryKey
 Route::get('/testKmsAymmetryKey', [KmsTestController::class, 'testKmsAymmetryKey']);
 
 Route::get('/getInvestment', [InvestmentController::class, 'getInvestment']);
+
+Route::get('/generatePowerLotteryNumbers', [PowerLotteryNumbersController::class, 'generatePowerLotteryNumbers']);
