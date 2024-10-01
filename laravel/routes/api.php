@@ -41,4 +41,4 @@ Route::get('/testKmsAymmetryKey', [KmsTestController::class, 'testKmsAymmetryKey
 
 Route::get('/getInvestment', [InvestmentController::class, 'getInvestment']);
 
-Route::get('/generatePowerLotteryNumbers', [PowerLotteryNumbersController::class, 'generatePowerLotteryNumbers']);
+Route::post('/generatePowerLotteryNumbers', [PowerLotteryNumbersController::class, 'generatePowerLotteryNumbers']);
